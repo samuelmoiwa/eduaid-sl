@@ -4,11 +4,11 @@ import logo from '../asset/logo.svg';
 import AOS from '../components/aosConfig';
 
 const navigation = [
-  { name: 'HOME', href: '#home', current: true },
-  { name: 'SERVICES', href: '#services', current: false },
-  { name: 'RESOURCES', href: '#resources', current: false },
-  { name: 'ABOUT US', href: '#about', current: false },
-  { name: 'CONTACT US', href: '#contact', current: false },
+  { name: "HOME", href: "/?section=home", current: true },
+  { name: "SERVICES", href: "/?section=services", current: false },
+  { name: "RESOURCES", href: "/?section=resources", current: false },
+  { name: "ABOUT US", href: "/?section=about", current: false },
+  { name: "CONTACT US", href: "/?section=contact", current: false },
 ];
 
 function NavBar() {
