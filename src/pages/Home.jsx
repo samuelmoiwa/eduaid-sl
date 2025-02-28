@@ -4,6 +4,7 @@ import ServicesSection from '../components/ServicesSection'
 import ResourcesSection from '../components/ResourcesSection'
 import AboutUsSection from '../components/AboutUsSection'
 import ContactSection from '../components/ContactSection'
+import BookShop from '../components/BookShop'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
         <HeroSection />
         <ServicesSection />
         <ResourcesSection />
+        <BookShop />
         <AboutUsSection />
         <ContactSection />
       </div>
