@@ -1,6 +1,8 @@
 import React from 'react'
 import HeroSection from '../components/HeroSection'
 import ServicesSection from '../components/ServicesSection'
+import ResourcesSection from '../components/ResourcesSection'
+import AboutUsSection from '../components/AboutUsSection'
 
 const Home = () => {
   return (
@@ -9,6 +11,8 @@ const Home = () => {
       items-center justify-self-center rounded-md '>
         <HeroSection />
         <ServicesSection />
+        <ResourcesSection />
+        <AboutUsSection />
       </div>
     </div>
 

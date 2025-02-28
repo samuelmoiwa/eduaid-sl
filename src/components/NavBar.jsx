@@ -7,9 +7,9 @@ import AOS from '../components/aosConfig';
 
 const navigation = [
   { name: "HOME", href: "/?section=home", current: true },
-  { name: "SERVICES", href: "/?section=features", current: false },
-  { name: "RESOURCES", href: "/?section=pricing", current: false },
-  { name: "ABOUT US", href: "/?section=pricing", current: false },
+  { name: "SERVICES", href: "/?section=services", current: false },
+  { name: "RESOURCES", href: "/?section=resources", current: false },
+  { name: "ABOUT US", href: "/?section=about", current: false },
   { name: "CONTACT US", href: "/?section=contact", current: false },
 ];
 
@@ -76,13 +76,13 @@ function NavBar() {
                   let aosAnimation = ""; // Default empty animation
 
                   // Apply different animations based on item position
-                  if (index === 1 || index === 2 ) {
+                  if (index === 1 || index === 3 ) {
                     aosAnimation = "zoom-in"; // Apply 'zoom-in' animation to second and third items
                   }
                   if (index === 0){
                     aosAnimation = "fade-right"; // Apply 'fade-right' animation to items on the left
                   }
-                  if (index === 3){
+                  if (index === 4){
                     aosAnimation = "fade-left"; // Apply 'fade-left' animation to items on the right
                   }
 
@@ -113,13 +113,13 @@ function NavBar() {
                 let aosAnimation = ""; // Default empty animation
 
                 // Apply different animations based on item position
-                if (index === 1 || index === 2 ) {
+                if (index === 1 || index === 3 ) {
                   aosAnimation = "zoom-in"; // Apply 'zoom-in' animation to second and third items
                 }
                 if (index === 0){
                   aosAnimation = "fade-right"; // Apply 'fade-right' animation to items on the left
                 }
-                if (index === 3){
+                if (index === 4){
                   aosAnimation = "fade-left"; // Apply 'fade-left' animation to items on the right
                 }
 

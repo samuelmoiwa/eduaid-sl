@@ -3,7 +3,7 @@ import bgImage from '../images/1.jpg';
 
 const HeroSection = () => {
   return (
-    <section
+    <section id="home"
       className="relative h-[50rem] flex items-center justify-center text-center bg-cover bg-center w-full max-w-[110rem]"
       style={{ backgroundImage: `url(${bgImage})` }}
     >

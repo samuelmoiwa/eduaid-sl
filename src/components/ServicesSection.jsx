@@ -36,8 +36,8 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section id="services" className="py-16 bg-gray-50 w-full max-w-[110rem] flex flex-col justify-center items-center">
+      <div className="container mx-w-[100rem] px-4">
         {/* Title and Subtitle */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-800 mb-4">
