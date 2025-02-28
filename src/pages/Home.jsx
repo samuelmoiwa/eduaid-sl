@@ -3,6 +3,7 @@ import HeroSection from '../components/HeroSection'
 import ServicesSection from '../components/ServicesSection'
 import ResourcesSection from '../components/ResourcesSection'
 import AboutUsSection from '../components/AboutUsSection'
+import ContactSection from '../components/ContactSection'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
         <ServicesSection />
         <ResourcesSection />
         <AboutUsSection />
+        <ContactSection />
       </div>
     </div>
 
