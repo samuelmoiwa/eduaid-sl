@@ -8,8 +8,8 @@ import instagram from "../asset/icons_Instagram.svg";
 
 function Footer() {
   return (
-    <footer className="bg-gray-100 py-8">
-      <div className="container mx-auto px-4">
+    <footer className="bg-gray-100 py-8 w-full">
+      <div className="container mx-auto px-4 w-full">
         <div className="flex justify-center items-center">
           <img src={logo} alt="Logo" className="h-16 w-52 mr-2" />
         </div>
