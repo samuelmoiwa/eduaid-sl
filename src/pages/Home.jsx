@@ -1,6 +1,7 @@
 import React from 'react'
 import HeroSection from '../components/home/HeroSection'
 import MissionOverviewWithStyles from '../components/home/MissionOverview'
+import FeautureSection from '../components/home/FeaturedSections'
 
 
 
@@ -22,17 +23,19 @@ const Home = () => {
         </section>
 
         <MissionOverviewWithStyles />
+        <FeautureSection />
 
 
 
 
 
 
-        <ServicesSection id='services' />
+
+        {/* <ServicesSection id='services' />
         <ResourcesSection id='resources' />
         <BookShop id='resources'/>
         <AboutUsSection id='resources'/>
-        <ContactSection id='resources'/>
+        <ContactSection id='resources'/> */}
       </div>
     </div>
 
