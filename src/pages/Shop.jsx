@@ -10,7 +10,6 @@ const Shop = () => {
           <ShopHero />
         </div>
 
-
         <div className="py-16 bg-gradient-to-b from-teal-100 via-white to-blue-100 w-full">
           <ShopPage />
         </div>
