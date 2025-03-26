@@ -1,128 +1,179 @@
-import React, { useEffect, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import logo from '../asset/logo.svg';
-import AOS from '../components/aosConfig';
+import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
-const navigation = [
-  { name: "HOME", href: "/?section=home", current: true },
-  { name: "SERVICES", href: "/?section=services", current: false },
-  { name: "RESOURCES", href: "/?section=resources", current: false },
-  { name: "ABOUT US", href: "/?section=about", current: false },
-  { name: "CONTACT US", href: "/?section=contact", current: false },
-];
-
-function NavBar() {
+const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    AOS.refresh(); // Refresh AOS on location change
-  }, [location]);
-
   return (
-    <nav className="bg-white shadow top-0 w-full fixed flex justify-center items-center z-50" aria-label="Top">
-      <div className="w-full max-w-[110rem]">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center ml-20">
-              <NavLink to="/" className="text-xl font-bold text-gray-800">
-                <img className="block h-8 w-auto lg:hidden" src={logo} alt="Your Company" />
-                <img className="hidden h-8 w-auto lg:block" src={logo} alt="Your Company" />
-              </NavLink>
-            </div>
+    <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-teal-600 to-blue-700 text-white shadow-lg z-50">
+      {/* Container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-4">
+          {/* Logo */}
+          <Link to="/" className="text-2xl font-bold font-montserrat flex items-center space-x-2 animate-fade-in">
+            <span className="text-yellow-400">EduAid</span>
+            <span>Global</span>
+          </Link>
 
-            <div className="flex items-center -mr-2 sm:hidden">
-              <button
-                onClick={toggleMenu}
-                type="button"
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-700 transition duration-150 ease-in-out"
-              >
-                <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
-                  />
-                </svg>
-              </button>
-            </div>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex space-x-8 items-center">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `text-lg font-open-sans transition-all duration-300 ${
+                  isActive ? 'text-yellow-400' : 'text-white hover:text-teal-200'
+                }`
+              }
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/resources"
+              className={({ isActive }) =>
+                `text-lg font-open-sans transition-all duration-300 ${
+                  isActive ? 'text-yellow-400' : 'text-white hover:text-teal-200'
+                }`
+              }
+            >
+              Resources
+            </NavLink>
+            <NavLink
+              to="/shop"
+              className={({ isActive }) =>
+                `text-lg font-open-sans transition-all duration-300 ${
+                  isActive ? 'text-yellow-400' : 'text-white hover:text-teal-200'
+                }`
+              }
+            >
+              Shop
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                `text-lg font-open-sans transition-all duration-300 ${
+                  isActive ? 'text-yellow-400' : 'text-white hover:text-teal-200'
+                }`
+              }
+            >
+              Contact
+            </NavLink>
+            {/* CTA Button */}
+            <Link
+              to="/signup"
+              className="px-4 py-2 bg-yellow-400 text-gray-900 font-semibold rounded-lg shadow-md hover:bg-yellow-500 hover:scale-105 transition-all duration-300"
+            >
+              Sign Up
+            </Link>
+          </div>
 
-            <div className="flex justify-center w-full hidden sm:flex">
-              <div className="hidden sm:flex sm:items-center sm:ml-6 mr-20">
-                {navigation.map((item, index) => {
-                  let aosAnimation = ''; // Default empty animation
-
-                  // Apply different animations based on item position
-                  if (index === 1 || index === 3) {
-                    aosAnimation = 'zoom-in'; // Apply 'zoom-in' animation to second and third items
-                  }
-                  if (index === 0) {
-                    aosAnimation = 'fade-right'; // Apply 'fade-right' animation to items on the left
-                  }
-                  if (index === 4) {
-                    aosAnimation = 'fade-left'; // Apply 'fade-left' animation to items on the right
-                  }
-
-                  return (
-                    <NavLink
-                      key={item.name}
-                      to={item.href}
-                      className="px-3 py-2 rounded-md text-sm font-medium text-gray-800 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:text-gray-700 focus:bg-gray-100 transition duration-150 ease-in-out"
-                      activeClassName="bg-gray-100"
-                      onClick={toggleMenu}
-                      data-aos={aosAnimation}
-                      data-aos-delay={`${index * 400}`} // Optional: Delay the animation for each item
-                    >
-                      {item.name}
-                    </NavLink>
-                  );
-                })}
-              </div>
-            </div>
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center">
+            <button onClick={toggleMenu} className="text-white focus:outline-none">
+              {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+            </button>
           </div>
         </div>
 
-        {isOpen && (
-          <div className="sm:hidden">
-            <div className="pt-2 pb-3 flex flex-col justify-center items-center">
-              {navigation.map((item, index) => {
-                let aosAnimation = ''; // Default empty animation
-
-                // Apply different animations based on item position
-                if (index === 1 || index === 3) {
-                  aosAnimation = 'zoom-in'; // Apply 'zoom-in' animation to second and third items
-                }
-                if (index === 0) {
-                  aosAnimation = 'fade-right'; // Apply 'fade-right' animation to items on the left
-                }
-                if (index === 4) {
-                  aosAnimation = 'fade-left'; // Apply 'fade-left' animation to items on the right
-                }
-
-                return (
-                  <NavLink
-                    key={item.name}
-                    to={item.href}
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:text-gray-700 focus:bg-gray-100 transition duration-150 ease-in-out"
-                    activeClassName="bg-gray-100"
-                    onClick={toggleMenu}
-                    data-aos={aosAnimation}
-                  >
-                    {item.name}
-                  </NavLink>
-                );
-              })}
-            </div>
+        {/* Mobile Navigation */}
+        <div
+          className={`md:hidden absolute top-16 left-0 w-full bg-teal-700 text-white transition-all duration-500 ease-in-out ${
+            isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+          }`}
+        >
+          <div className="flex flex-col space-y-6 py-6 px-4 animate-fade-in-up">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `text-lg font-open-sans transition-all duration-300 ${
+                  isActive ? 'text-yellow-400' : 'text-white hover:text-teal-200'
+                }`
+              }
+              onClick={toggleMenu}
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/resources"
+              className={({ isActive }) =>
+                `text-lg font-open-sans transition-all duration-300 ${
+                  isActive ? 'text-yellow-400' : 'text-white hover:text-teal-200'
+                }`
+              }
+              onClick={toggleMenu}
+            >
+              Resources
+            </NavLink>
+            <NavLink
+              to="/shop"
+              className={({ isActive }) =>
+                `text-lg font-open-sans transition-all duration-300 ${
+                  isActive ? 'text-yellow-400' : 'text-white hover:text-teal-200'
+                }`
+              }
+              onClick={toggleMenu}
+            >
+              Shop
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                `text-lg font-open-sans transition-all duration-300 ${
+                  isActive ? 'text-yellow-400' : 'text-white hover:text-teal-200'
+                }`
+              }
+              onClick={toggleMenu}
+            >
+              Contact
+            </NavLink>
+            <Link
+              to="/signup"
+              className="px-4 py-2 bg-yellow-400 text-gray-900 font-semibold rounded-lg shadow-md hover:bg-yellow-500 hover:scale-105 transition-all duration-300 text-center"
+              onClick={toggleMenu}
+            >
+              Sign Up
+            </Link>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
-}
+};
 
-export default NavBar;
+// Custom Styles and Fonts
+const NavBarWithStyles = () => (
+  <div>
+    <style>
+      {`
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap');
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .font-open-sans { font-family: 'Open Sans', sans-serif; }
+
+        /* Fade In Animation */
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .animate-fade-in {
+          animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        /* Fade In Up Animation for Mobile Menu */
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+          animation: fadeInUp 0.5s ease-out forwards;
+        }
+      `}
+    </style>
+    <NavBar />
+  </div>
+);
+
+export default NavBarWithStyles;

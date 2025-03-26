@@ -63,7 +63,7 @@ const BookShop = () => {
 
   return (
     <section id="bookshop" className="py-16 bg-orange-600 w-full max-w-[110rem]">
-      <div className="container mx-auto px-6 w-full">
+      <div className=" mx-auto px-6 w-full">
         {/* Section Header */}
         <div className="text-center mb-10">
           <h2 className="text-4xl font-bold text-white">Recommended Books</h2>
