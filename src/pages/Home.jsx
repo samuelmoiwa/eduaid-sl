@@ -15,13 +15,22 @@ const Home = () => {
           < HeroSection />
         </section>
 
-        <MissionOverview />
+        <div className="py-24 bg-gradient-to-br from-teal-500 via-cyan-400 to-blue-600 text-white overflow-hidden flex flex-col justify-center items-center w-full relative ">
+          <MissionOverview />
+        </div>
+
+
         <FeautureSection />
         <div className="py-16 bg-gradient-to-r from-teal-500 via-cyan-600 to-blue-600 text-white overflow-hidden w-full">
           <QuickLinksBanner />
         </div>
 
-        <BookShop />
+        <div className="py-20 bg-gradient-to-br from-orange-500 via-amber-500 to-yellow-400 text-white overflow-hidden relative w-full">
+          <BookShop />
+        </div>
+
+
+
         <div className="py-24 bg-gradient-to-br from-teal-600 via-cyan-500 to-blue-700 text-white overflow-hidden relative w-full">
           <ContactSection />
         </div>
