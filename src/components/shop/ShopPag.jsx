@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaTimes } from 'react-icons/fa';
+import { FaTimes, FaSearch } from 'react-icons/fa';
 
 // Dummy data with placeholder affiliate links
 const dummyBooks = [
@@ -107,6 +107,7 @@ const BookDetailModal = ({ book, onClose }) => {
 
 const ShopPage = () => {
   const [selectedBook, setSelectedBook] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const openModal = (book) => {
     setSelectedBook(book);
@@ -116,8 +117,13 @@ const ShopPage = () => {
     setSelectedBook(null);
   };
 
+  // Filter books based on search query
+  const filteredBooks = dummyBooks.filter((book) =>
+    book.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
-    <section >
+    <section className="py-16 bg-gradient-to-b from-teal-100 via-white to-blue-100">
       {/* Hero Section */}
       <div className="text-center mb-12">
         <h1 className="text-4xl sm:text-5xl font-bold font-montserrat text-teal-800 relative inline-block">
@@ -129,33 +135,51 @@ const ShopPage = () => {
         </p>
       </div>
 
+      {/* Search Filter */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div className="relative max-w-md mx-auto">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search books by title..."
+            className="w-full px-4 py-3 pl-10 bg-white border border-teal-300 rounded-full text-gray-800 font-open-sans focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all duration-300 hover:bg-teal-50 shadow-md"
+          />
+          <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-teal-600" />
+        </div>
+      </div>
+
       {/* Book Grid */}
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {dummyBooks.map((book) => (
-            <div
-              key={book.id}
-              onClick={() => openModal(book)}
-              className="group bg-white rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer overflow-hidden"
-            >
-              <div className="relative">
-                <img
-                  src={book.image}
-                  alt={book.title}
-                  className="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-                <p className="absolute bottom-2 left-2 text-white font-semibold font-open-sans opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Click to View
-                </p>
+          {filteredBooks.length > 0 ? (
+            filteredBooks.map((book) => (
+              <div
+                key={book.id}
+                onClick={() => openModal(book)}
+                className="group bg-white rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer overflow-hidden"
+              >
+                <div className="relative">
+                  <img
+                    src={book.image}
+                    alt={book.title}
+                    className="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                  <p className="absolute bottom-2 left-2 text-white font-semibold font-open-sans opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Click to View
+                  </p>
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-gray-800 font-montserrat truncate">{book.title}</h3>
+                  <p className="text-sm text-gray-600 font-open-sans">{book.author}</p>
+                  <p className="text-sm text-teal-600 font-open-sans mt-1">${book.price.toFixed(2)}</p>
+                </div>
               </div>
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-800 font-montserrat truncate">{book.title}</h3>
-                <p className="text-sm text-gray-600 font-open-sans">{book.author}</p>
-                <p className="text-sm text-teal-600 font-open-sans mt-1">${book.price.toFixed(2)}</p>
-              </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p className="text-center text-gray-600 font-open-sans col-span-full">No books found.</p>
+          )}
         </div>
       </div>
 
