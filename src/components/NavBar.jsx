@@ -74,7 +74,7 @@ const NavBar = () => {
             </NavLink>
             {/* CTA Button */}
             <Link
-              to="/signup"
+              to="/#"
               className="px-4 py-2 bg-yellow-400 text-gray-900 font-semibold rounded-lg shadow-md hover:bg-yellow-500 hover:scale-105 transition-all duration-300"
             >
               Sign Up
@@ -152,7 +152,7 @@ const NavBar = () => {
               Contact
             </NavLink>
             <Link
-              to="/signup"
+              to="/#"
               className="px-4 py-2 bg-yellow-400 text-gray-900 font-semibold rounded-lg shadow-md hover:bg-yellow-500 hover:scale-105 transition-all duration-300 text-center"
               onClick={toggleMenu}
             >
