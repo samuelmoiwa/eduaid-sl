@@ -1,5 +1,6 @@
 import React from 'react'
 import HelpDeskHeroWithStyles from '../components/help_desk/HelpDeskHero'
+import AIAssistantWithStyles from '../components/help_desk/AIAssistant'
 
 const HelpDesk = () => {
   return (
@@ -10,7 +11,9 @@ const HelpDesk = () => {
           <HelpDeskHeroWithStyles />
         </div>
 
-
+        <div id="ai-assistant" className="py-16 bg-gradient-to-b from-teal-100 via-white to-blue-100 w-full">
+          <AIAssistantWithStyles />
+        </div>
 
 
       </div>
