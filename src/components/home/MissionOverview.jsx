@@ -22,8 +22,12 @@ const MissionOverview = () => {
             </h2>
 
             {/* Text Block */}
-            <p className="text-lg sm:text-xl text-gray-700 font-open-sans leading-relaxed max-w-lg mx-auto lg:mx-0">
-              We provide free educational resources, expert dissertation support, and carefully curated learning materials to students worldwide. Our mission is to break barriers and make education accessible, impactful, and transformative—no matter where you are.
+            <p className="text-lg sm:text-xl text-gray-700 font-open-sans leading-relaxed max-w-lg mx-auto lg:mx-0 text-justify">
+              We streamline your learning journey by scouring the internet to gather top-quality educational resources,
+              expert dissertation guidance, and meticulously curated materials, all centralized in one accessible hub
+              for students worldwide. Our mission is to dismantle obstacles to education, delivering a seamless,
+              impactful, and transformative experience—ensuring that no matter where you are, the tools for success
+              are just a click away.
             </p>
 
             {/* Stats or Highlights */}
