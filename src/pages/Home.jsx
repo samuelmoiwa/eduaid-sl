@@ -19,8 +19,12 @@ const Home = () => {
           <MissionOverview />
         </div>
 
+        <div className="py-24 bg-gradient-to-br from-teal-50 via-white to-blue-50 overflow-hidden w-full relative">
+          <FeautureSection />
+        </div>
 
-        <FeautureSection />
+
+
         <div className="py-16 bg-gradient-to-r from-teal-500 via-cyan-600 to-blue-600 text-white overflow-hidden w-full">
           <QuickLinksBanner />
         </div>
