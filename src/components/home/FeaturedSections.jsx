@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import profile_icon from '../../images/profile_icon.jpg';
+import calculus from '../../images/calculus.jpg'
+import grammarly from '../../images/grammarly.png'
 
 // Sample data (replace with API or state in a real app)
 const sampleData = {
@@ -31,14 +33,14 @@ const sampleData = {
       id: 1,
       title: 'Calculus Textbook',
       price: '$29.99',
-      image: 'https://via.placeholder.com/120?text=Calculus+Book',
+      image: calculus,
       link: '#',
     },
     {
       id: 2,
       title: 'Grammarly Subscription',
       price: '$11.99/mo',
-      image: 'https://via.placeholder.com/120?text=Grammarly',
+      image: grammarly,
       link: '#',
     },
   ],
