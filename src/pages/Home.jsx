@@ -1,8 +1,8 @@
 import React from 'react'
 import HeroSection from '../components/home/HeroSection'
-import MissionOverviewWithStyles from '../components/home/MissionOverview'
+import MissionOverview from '../components/home/MissionOverview'
 import FeautureSection from '../components/home/FeaturedSections'
-
+import QuickLinksBanner from '../components/QuickLinksBanner'
 
 
 
@@ -14,6 +14,7 @@ import AboutUsSection from '../components/AboutUsSection'
 import ContactSection from '../components/ContactSection'
 import BookShop from '../components/BookShop'
 
+
 const Home = () => {
   return (
     <div className='w-full h-full flex justify-center items-center flex-col '>
@@ -22,18 +23,17 @@ const Home = () => {
           < HeroSection />
         </section>
 
-        <MissionOverviewWithStyles />
+        <MissionOverview />
         <FeautureSection />
-
-
-
+        <QuickLinksBanner />
+        <BookShop />
 
 
 
 
         {/* <ServicesSection id='services' />
         <ResourcesSection id='resources' />
-        <BookShop id='resources'/>
+
         <AboutUsSection id='resources'/>
         <ContactSection id='resources'/> */}
       </div>
