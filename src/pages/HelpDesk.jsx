@@ -1,6 +1,8 @@
 import React from 'react'
 import HelpDeskHeroWithStyles from '../components/help_desk/HelpDeskHero'
 import AIAssistantWithStyles from '../components/help_desk/AIAssistant'
+import HelpDeskResourcesWithStyles from '../components/help_desk/HelpDeskResources'
+import WhatsAppLinkWithStyles from '../components/help_desk/WhatsAppLink'
 
 const HelpDesk = () => {
   return (
@@ -13,6 +15,12 @@ const HelpDesk = () => {
 
         <div id="ai-assistant" className="py-16 bg-gradient-to-b from-teal-100 via-white to-blue-100 w-full">
           <AIAssistantWithStyles />
+        </div>
+
+        <HelpDeskResourcesWithStyles />
+
+        <div className="py-16 bg-gradient-to-r from-orange-500 to-yellow-500 text-white w-full">
+          <WhatsAppLinkWithStyles />
         </div>
 
 
