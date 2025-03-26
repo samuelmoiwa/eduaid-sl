@@ -1,42 +1,103 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes, FaSearch } from 'react-icons/fa';
 
-const ResourceFilters = ({ onFilterChange }) => {
+// Dummy data for resources
+const dummyResources = [
+  { id: 1, title: 'SAT Math Guide', category: 'Math', level: 'High School', description: 'Boost your SAT scores fast with this comprehensive guide covering key math concepts and practice questions.' },
+  { id: 2, title: 'Physics Video Tutorial', category: 'Science', level: 'College', description: 'Master physics concepts through engaging video tutorials, perfect for college-level students.' },
+  { id: 3, title: 'Biology Study Notes', category: 'Science', level: 'High School', description: 'Ace your biology exams with these detailed, easy-to-follow study notes.' },
+  { id: 4, title: 'Spanish Grammar Basics', category: 'Languages', level: 'High School', description: 'Learn Spanish fundamentals with clear explanations and examples.' },
+  { id: 5, title: 'Python for Beginners', category: 'Programming', level: 'College', description: 'Start coding with Python using this beginner-friendly resource.' },
+  { id: 6, title: 'World History Timeline', category: 'History', level: 'High School', description: 'Key events in history presented in an interactive timeline format.' },
+  { id: 7, title: 'Calculus Crash Course', category: 'Math', level: 'College', description: 'Master calculus quickly with this intensive crash course.' },
+  { id: 8, title: 'French Vocabulary List', category: 'Languages', level: 'Professional', description: 'Expand your French skills with this extensive vocabulary list.' },
+  { id: 9, title: 'Chemistry Lab Basics', category: 'Science', level: 'College', description: 'Essential lab techniques for chemistry students, with practical tips.' },
+  { id: 10, title: 'JavaScript Essentials', category: 'Programming', level: 'Professional', description: 'Core JS concepts explained for professional developers.' },
+];
+
+// Resource Detail Modal Component
+const ResourceDetailModal = ({ resource, onClose }) => {
+  if (!resource) return null;
+
+  return (
+    <div className="fixed inset-0 bg-gray-900 bg-opacity-80 flex justify-center items-center z-50">
+      <div className="bg-white rounded-xl shadow-2xl p-6 sm:p-8 max-w-lg w-full mx-4 transform transition-all duration-300 scale-95 animate-fade-in-up">
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-gray-600 hover:text-gray-800 focus:outline-none"
+        >
+          <FaTimes size={20} />
+        </button>
+
+        {/* Modal Content */}
+        <h3 className="text-2xl font-bold text-teal-800 font-montserrat mb-4">{resource.title}</h3>
+        <div className="space-y-4">
+          <p className="text-sm text-gray-600 font-open-sans">
+            <span className="font-semibold">Category:</span> {resource.category}
+          </p>
+          <p className="text-sm text-gray-600 font-open-sans">
+            <span className="font-semibold">Level:</span> {resource.level}
+          </p>
+          <p className="text-base text-gray-700 font-open-sans leading-relaxed">{resource.description}</p>
+        </div>
+
+        {/* Action Button */}
+        <button
+          onClick={() => alert('Resource link clicked!')} // Replace with actual link logic
+          className="mt-6 w-full px-6 py-3 bg-gradient-to-r from-teal-600 to-blue-600 text-white font-semibold rounded-full shadow-md hover:from-teal-700 hover:to-blue-700 hover:scale-105 transition-all duration-300"
+        >
+          View Resource
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const ResourceFilters = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedLevel, setSelectedLevel] = useState('All');
+  const [selectedResource, setSelectedResource] = useState(null);
 
   const categories = ['All', 'Math', 'Science', 'Languages', 'History', 'Programming'];
   const levels = ['All', 'High School', 'College', 'Professional'];
 
-  // Debounced search handler (simplified for demo; use lodash.debounce in production)
+  // Filter resources based on search, category, and level
+  const filteredResources = dummyResources.filter((resource) => {
+    const matchesSearch = resource.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          resource.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = selectedCategory === 'All' || resource.category === selectedCategory;
+    const matchesLevel = selectedLevel === 'All' || resource.level === selectedLevel;
+    return matchesSearch && matchesCategory && matchesLevel;
+  });
+
+  // Handlers
   const handleSearch = (e) => {
-    const query = e.target.value;
-    setSearchQuery(query);
-    if (onFilterChange) {
-      onFilterChange({ search: query, category: selectedCategory, level: selectedLevel });
-    }
+    setSearchQuery(e.target.value);
   };
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
-    if (onFilterChange) {
-      onFilterChange({ search: searchQuery, category, level: selectedLevel });
-    }
-    setIsOpen(false); // Close mobile menu on selection
+    setIsOpen(false);
   };
 
   const handleLevelChange = (level) => {
     setSelectedLevel(level);
-    if (onFilterChange) {
-      onFilterChange({ search: searchQuery, category: selectedCategory, level });
-    }
-    setIsOpen(false); // Close mobile menu on selection
+    setIsOpen(false);
   };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const openModal = (resource) => {
+    setSelectedResource(resource);
+  };
+
+  const closeModal = () => {
+    setSelectedResource(null);
   };
 
   return (
@@ -150,6 +211,30 @@ const ResourceFilters = ({ onFilterChange }) => {
             </div>
           </div>
         </div>
+
+        {/* Resource List */}
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredResources.length > 0 ? (
+            filteredResources.map((resource) => (
+              <div
+                key={resource.id}
+                onClick={() => openModal(resource)}
+                className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-t-4 border-teal-500 cursor-pointer"
+              >
+                <h4 className="text-lg font-semibold text-gray-800 font-montserrat">{resource.title}</h4>
+                <p className="text-sm text-gray-600 font-open-sans truncate">{resource.description}</p>
+                <p className="text-xs text-teal-600 mt-2 font-open-sans">
+                  {resource.category} • {resource.level}
+                </p>
+              </div>
+            ))
+          ) : (
+            <p className="text-center text-gray-600 font-open-sans col-span-full">No resources found.</p>
+          )}
+        </div>
+
+        {/* Resource Detail Modal */}
+        <ResourceDetailModal resource={selectedResource} onClose={closeModal} />
       </div>
     </section>
   );
