@@ -163,13 +163,13 @@ const FeaturedSections = ({ resources = sampleData.resources, products = sampleD
               className="bg-teal-50 p-5 rounded-xl shadow-lg"
             >
               {testimonials.map((testimonial) => (
-                <div key={testimonial.id} className="p-4">
+                <div key={testimonial.id} className="p-2">
                   <p className="text-gray-700 italic text-base mb-4">“{testimonial.quote}”</p>
-                  <div className="flex flex-col items-center space-y-3 w-full">
+                  <div className="flex flex-col items-center space-y-3 p-8 w-full">
                     <img
                       src={testimonial.avatar}
                       alt={`${testimonial.name} Avatar`}
-                      className="h-[20rem] w-full rounded-full border-2 border-teal-300"
+                      className="h-[17rem] w-full rounded-full border-2 border-teal-300"
                     />
                     <div>
                       <p className="text-sm font-semibold text-gray-800">{testimonial.name}</p>
