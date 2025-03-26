@@ -103,7 +103,7 @@ const ResourceFilters = () => {
   return (
     <section className="sticky top-16 bg-white bg-opacity-90 shadow-lg z-40 py-4">
       {/* Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="sm:max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Desktop Filters */}
         <div className="hidden md:flex items-center justify-between space-x-6">
           {/* Category Buttons */}
@@ -127,7 +127,8 @@ const ResourceFilters = () => {
           <select
             value={selectedLevel}
             onChange={(e) => handleLevelChange(e.target.value)}
-            className="px-4 py-2 bg-white border border-teal-300 rounded-full text-teal-800 font-open-sans focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all duration-300 hover:bg-teal-50"
+            className="px-4 py-2 bg-white border border-teal-300 rounded-full text-teal-800 font-open-sans
+                focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all duration-300 hover:bg-teal-50"
           >
             {levels.map((level) => (
               <option key={level} value={level}>
@@ -143,7 +144,8 @@ const ResourceFilters = () => {
               value={searchQuery}
               onChange={handleSearch}
               placeholder="Search resources..."
-              className="w-full px-4 py-2 pl-10 bg-white border border-teal-300 rounded-full text-gray-800 font-open-sans focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all duration-300 hover:bg-teal-50"
+              className="w-full px-4 py-2 pl-10 bg-white border border-teal-300 rounded-full text-gray-800
+              font-open-sans focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all duration-300 hover:bg-teal-50"
             />
             <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-teal-600" />
           </div>
@@ -163,7 +165,8 @@ const ResourceFilters = () => {
               value={searchQuery}
               onChange={handleSearch}
               placeholder="Search..."
-              className="w-full px-4 py-2 pl-10 bg-white border border-teal-300 rounded-full text-gray-800 font-open-sans focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all duration-300"
+              className="w-full px-4 py-2 pl-10 bg-white border border-teal-300 rounded-full text-gray-800
+                font-open-sans focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all duration-300"
             />
             <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-teal-600" />
           </div>

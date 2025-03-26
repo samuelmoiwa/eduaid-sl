@@ -8,6 +8,7 @@ const Resources = () => {
       <div className='w-full pt-14 flex flex-col justify-center items-center max-w-[110rem]'>
         <ResourcesHero />
         <ResourceFilters />
+
       </div>
     </div>
   )

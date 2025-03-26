@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Lottie from 'lottie-react';
-import student_lottie from '../../lottie/student_1.json'; // Adjust path as needed
+import books_lottie from '../../lottie/student_1.json'; // Placeholder Lottie file (adjust path as needed)
 
-const ResourcesHero = () => {
+const ShopHero = () => {
   return (
-    <section className="py-32 bg-gradient-to-br from-teal-600 via-cyan-500 to-blue-700 text-white overflow-hidden relative">
+    <section >
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-0 w-72 h-72 bg-teal-300 rounded-full blur-3xl -translate-x-1/2 translate-y-1/4 animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-300 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 animate-pulse"></div>
+        <div className="absolute top-0 left-0 w-72 h-72 bg-orange-300 rounded-full blur-3xl -translate-x-1/2 translate-y-1/4 animate-pulse"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-300 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 animate-pulse"></div>
       </div>
 
       {/* Container */}
@@ -20,21 +20,21 @@ const ResourcesHero = () => {
           <div className="space-y-8 text-center lg:text-left animate-fade-in-up">
             {/* Heading */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-montserrat relative inline-block">
-              Unlock Your Learning Potential
-              <span className="absolute -bottom-3 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full transform -skew-y-3"></span>
+              Your Learning Bookstore
+              <span className="absolute -bottom-3 left-0 w-full h-2 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full transform -skew-y-3"></span>
             </h1>
 
             {/* Subheading */}
-            <p className="text-lg sm:text-xl text-teal-100 font-open-sans leading-relaxed max-w-lg mx-auto lg:mx-0">
-              Explore free resources curated for students worldwide, designed to empower your educational journey.
+            <p className="text-lg sm:text-xl text-orange-100 font-open-sans leading-relaxed max-w-lg mx-auto lg:mx-0">
+              Discover top-tier educational books from trusted retailers—every purchase supports our mission to provide free resources.
             </p>
 
             {/* CTA Button */}
             <Link
-              to="/resources#list"
-              className="inline-block px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 font-semibold rounded-full shadow-lg hover:from-yellow-500 hover:to-orange-600 hover:scale-105 transition-all duration-300 animate-fade-in-up animation-delay-200"
+              to="/shop#books"
+              className="inline-block px-8 py-4 bg-gradient-to-r from-teal-600 to-blue-600 text-white font-semibold rounded-full shadow-lg hover:from-teal-700 hover:to-blue-700 hover:scale-105 transition-all duration-300 animate-fade-in-up animation-delay-200"
             >
-              CONTRACT US NOW
+              Shop Now
             </Link>
           </div>
 
@@ -42,12 +42,12 @@ const ResourcesHero = () => {
           <div className="relative flex justify-center lg:justify-end animate-fade-in-right">
             <div className="relative group">
               <Lottie
-                animationData={student_lottie}
+                animationData={books_lottie}
                 loop={true}
                 className="w-72 h-72 sm:w-96 sm:h-96 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
               />
               {/* Animated Background Gradient */}
-              <div className="absolute inset-0 m-auto w-80 h-80 sm:w-112 sm:h-112 bg-gradient-to-tr from-teal-300 via-yellow-300 to-blue-300 rounded-full opacity-30 blur-2xl animate-spin-slow group-hover:opacity-50 group-hover:blur-3xl transition-all duration-500"></div>
+              <div className="absolute inset-0 m-auto w-80 h-80 sm:w-112 sm:h-112 bg-gradient-to-tr from-orange-300 via-yellow-300 to-teal-300 rounded-full opacity-30 blur-2xl animate-spin-slow group-hover:opacity-50 group-hover:blur-3xl transition-all duration-500"></div>
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@ const ResourcesHero = () => {
 };
 
 // Custom Styles and Fonts
-const ResourcesHeroWithStyles = () => (
+const ShopHeroWithStyles = () => (
   <div>
     <style>
       {`
@@ -104,8 +104,8 @@ const ResourcesHeroWithStyles = () => (
         }
       `}
     </style>
-    <ResourcesHero />
+    <ShopHero />
   </div>
 );
 
-export default ResourcesHeroWithStyles;
+export default ShopHeroWithStyles;
