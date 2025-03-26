@@ -2,10 +2,74 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import profile_icon from '../../images/profile_icon.jpg';
 
-const FeaturedSections = () => {
+// Sample data (replace with API or state in a real app)
+const sampleData = {
+  resources: [
+    {
+      id: 1,
+      title: 'SAT Math Guide',
+      description: 'Boost your SAT scores fast',
+      icon: 'https://img.icons8.com/ios-filled/50/000000/math.png',
+    },
+    {
+      id: 2,
+      title: 'Physics Video Tutorial',
+      description: 'Master physics concepts',
+      icon: 'https://img.icons8.com/ios-filled/50/000000/video.png',
+    },
+    {
+      id: 3,
+      title: 'Biology Study Notes',
+      description: 'Ace your biology exams',
+      icon: 'https://img.icons8.com/ios-filled/50/000000/book.png',
+    },
+  ],
+  products: [
+    {
+      id: 1,
+      title: 'Calculus Textbook',
+      price: '$29.99',
+      image: 'https://via.placeholder.com/120?text=Calculus+Book',
+      link: '#',
+    },
+    {
+      id: 2,
+      title: 'Grammarly Subscription',
+      price: '$11.99/mo',
+      image: 'https://via.placeholder.com/120?text=Grammarly',
+      link: '#',
+    },
+  ],
+  testimonials: [
+    {
+      id: 1,
+      quote: 'EduAid helped me ace my exams with their amazing resources!',
+      name: 'Jane',
+      location: 'UK',
+      avatar: profile_icon,
+    },
+    {
+      id: 2,
+      quote: 'The dissertation tools are a lifesaver—highly recommend!',
+      name: 'Alex',
+      location: 'Canada',
+      avatar: profile_icon,
+    },
+    {
+      id: 3,
+      quote: 'A game-changer for my studies—thank you, EduAid!',
+      name: 'Priya',
+      location: 'India',
+      avatar: profile_icon,
+    },
+  ],
+};
+
+const FeaturedSections = ({ resources = sampleData.resources, products = sampleData.products, testimonials = sampleData.testimonials }) => {
   return (
-    <section className="py-20  overflow-hidden w-full">
+    <section className="py-20 overflow-hidden w-full">
       {/* Container */}
       <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Decorative Background Elements */}
@@ -22,48 +86,20 @@ const FeaturedSections = () => {
             </h3>
             {/* Resource Cards */}
             <div className="space-y-4">
-              {/* Card 1 */}
-              <div className="bg-white p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-t-4 border-blue-500">
-                <div className="flex items-center space-x-4">
-                  <img
-                    src="https://img.icons8.com/ios-filled/50/000000/math.png"
-                    alt="SAT Math Guide"
-                    className="w-14 h-14"
-                  />
-                  <div>
-                    <h4 className="text-lg font-semibold text-gray-800">SAT Math Guide</h4>
-                    <p className="text-sm text-gray-600">Boost your SAT scores fast</p>
+              {resources.map((resource) => (
+                <div
+                  key={resource.id}
+                  className="bg-white p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-t-4 border-blue-500"
+                >
+                  <div className="flex items-center space-x-4">
+                    <img src={resource.icon} alt={resource.title} className="w-14 h-14" />
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-800">{resource.title}</h4>
+                      <p className="text-sm text-gray-600">{resource.description}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              {/* Card 2 */}
-              <div className="bg-white p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-t-4 border-blue-500">
-                <div className="flex items-center space-x-4">
-                  <img
-                    src="https://img.icons8.com/ios-filled/50/000000/video.png"
-                    alt="Physics Video Tutorial"
-                    className="w-14 h-14"
-                  />
-                  <div>
-                    <h4 className="text-lg font-semibold text-gray-800">Physics Video Tutorial</h4>
-                    <p className="text-sm text-gray-600">Master physics concepts</p>
-                  </div>
-                </div>
-              </div>
-              {/* Card 3 */}
-              <div className="bg-white p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-t-4 border-blue-500">
-                <div className="flex items-center space-x-4">
-                  <img
-                    src="https://img.icons8.com/ios-filled/50/000000/book.png"
-                    alt="Biology Study Notes"
-                    className="w-14 h-14"
-                  />
-                  <div>
-                    <h4 className="text-lg font-semibold text-gray-800">Biology Study Notes</h4>
-                    <p className="text-sm text-gray-600">Ace your biology exams</p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
             {/* CTA Button */}
             <Link
@@ -82,38 +118,26 @@ const FeaturedSections = () => {
             </h3>
             {/* Product Cards */}
             <div className="space-y-4">
-              {/* Card 1 */}
-              <div className="bg-white p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-t-4 border-orange-500">
-                <img
-                  src="https://via.placeholder.com/120?text=Calculus+Book"
-                  alt="Calculus Textbook"
-                  className="w-24 h-24 mx-auto mb-3 rounded"
-                />
-                <h4 className="text-lg font-semibold text-gray-800">Calculus Textbook</h4>
-                <p className="text-sm text-gray-600">$29.99</p>
-                <a
-                  href="#"
-                  className="block mt-3 px-5 py-2 bg-orange-600 text-white text-sm font-semibold rounded-lg hover:bg-orange-700 transition-colors duration-300"
+              {products.map((product) => (
+                <div
+                  key={product.id}
+                  className="bg-white p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-t-4 border-orange-500"
                 >
-                  Shop Now
-                </a>
-              </div>
-              {/* Card 2 */}
-              <div className="bg-white p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-t-4 border-orange-500">
-                <img
-                  src="https://via.placeholder.com/120?text=Grammarly"
-                  alt="Grammarly Subscription"
-                  className="w-24 h-24 mx-auto mb-3 rounded"
-                />
-                <h4 className="text-lg font-semibold text-gray-800">Grammarly Subscription</h4>
-                <p className="text-sm text-gray-600">$11.99/mo</p>
-                <a
-                  href="#"
-                  className="block mt-3 px-5 py-2 bg-orange-600 text-white text-sm font-semibold rounded-lg hover:bg-orange-700 transition-colors duration-300"
-                >
-                  Shop Now
-                </a>
-              </div>
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-24 h-24 mx-auto mb-3 rounded"
+                  />
+                  <h4 className="text-lg font-semibold text-gray-800">{product.title}</h4>
+                  <p className="text-sm text-gray-600">{product.price}</p>
+                  <a
+                    href={product.link}
+                    className="block mt-3 px-5 py-2 bg-orange-600 text-white text-sm font-semibold rounded-lg hover:bg-orange-700 transition-colors duration-300"
+                  >
+                    Shop Now
+                  </a>
+                </div>
+              ))}
             </div>
             {/* Disclaimer */}
             <p className="text-xs text-gray-600 text-center md:text-left italic">
@@ -136,57 +160,22 @@ const FeaturedSections = () => {
               interval={5000}
               className="bg-teal-50 p-5 rounded-xl shadow-lg"
             >
-              {/* Testimonial 1 */}
-              <div className="p-4">
-                <p className="text-gray-700 italic text-base mb-4">
-                  “EduAid helped me ace my exams with their amazing resources!”
-                </p>
-                <div className="flex items-center space-x-3">
-                  <img
-                    src="https://via.placeholder.com/50?text=Jane"
-                    alt="Jane Avatar"
-                    className="w-12 h-12 rounded-full border-2 border-teal-300"
-                  />
-                  <div>
-                    <p className="text-sm font-semibold text-gray-800">Jane</p>
-                    <p className="text-xs text-gray-600">UK</p>
+              {testimonials.map((testimonial) => (
+                <div key={testimonial.id} className="p-4">
+                  <p className="text-gray-700 italic text-base mb-4">“{testimonial.quote}”</p>
+                  <div className="flex flex-col items-center space-y-3 w-full">
+                    <img
+                      src={testimonial.avatar}
+                      alt={`${testimonial.name} Avatar`}
+                      className="h-[20rem] w-full rounded-full border-2 border-teal-300"
+                    />
+                    <div>
+                      <p className="text-sm font-semibold text-gray-800">{testimonial.name}</p>
+                      <p className="text-xs text-gray-600">{testimonial.location}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              {/* Testimonial 2 */}
-              <div className="p-4">
-                <p className="text-gray-700 italic text-base mb-4">
-                  “The dissertation tools are a lifesaver—highly recommend!”
-                </p>
-                <div className="flex items-center space-x-3">
-                  <img
-                    src="https://via.placeholder.com/50?text=Alex"
-                    alt="Alex Avatar"
-                    className="w-12 h-12 rounded-full border-2 border-teal-300"
-                  />
-                  <div>
-                    <p className="text-sm font-semibold text-gray-800">Alex</p>
-                    <p className="text-xs text-gray-600">Canada</p>
-                  </div>
-                </div>
-              </div>
-              {/* Testimonial 3 */}
-              <div className="p-4">
-                <p className="text-gray-700 italic text-base mb-4">
-                  “A game-changer for my studies—thank you, EduAid!”
-                </p>
-                <div className="flex items-center space-x-3">
-                  <img
-                    src="https://via.placeholder.com/50?text=Priya"
-                    alt="Priya Avatar"
-                    className="w-12 h-12 rounded-full border-2 border-teal-300"
-                  />
-                  <div>
-                    <p className="text-sm font-semibold text-gray-800">Priya</p>
-                    <p className="text-xs text-gray-600">India</p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </Carousel>
           </div>
         </div>
