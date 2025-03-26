@@ -53,6 +53,16 @@ const NavBar = () => {
               Shop
             </NavLink>
             <NavLink
+              to="/help"
+              className={({ isActive }) =>
+                `text-lg font-open-sans transition-all duration-300 ${
+                  isActive ? 'text-yellow-400' : 'text-white hover:text-teal-200'
+                }`
+              }
+            >
+              Help Desk
+            </NavLink>
+            <NavLink
               to="/contact"
               className={({ isActive }) =>
                 `text-lg font-open-sans transition-all duration-300 ${
@@ -118,6 +128,17 @@ const NavBar = () => {
               onClick={toggleMenu}
             >
               Shop
+            </NavLink>
+            <NavLink
+              to="/help"
+              className={({ isActive }) =>
+                `text-lg font-open-sans transition-all duration-300 ${
+                  isActive ? 'text-yellow-400' : 'text-white hover:text-teal-200'
+                }`
+              }
+              onClick={toggleMenu}
+            >
+              Help Desk
             </NavLink>
             <NavLink
               to="/contact"

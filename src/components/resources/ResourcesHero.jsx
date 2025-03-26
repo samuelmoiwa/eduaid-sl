@@ -34,7 +34,7 @@ const ResourcesHero = () => {
               to="/resources#list"
               className="inline-block px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 font-semibold rounded-full shadow-lg hover:from-yellow-500 hover:to-orange-600 hover:scale-105 transition-all duration-300 animate-fade-in-up animation-delay-200"
             >
-              CONTRACT US NOW
+              CONNECT WITH US NOW
             </Link>
           </div>
 
