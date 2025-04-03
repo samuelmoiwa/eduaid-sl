@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import bgImage from '../../images/1.jpg';
 import { Link } from 'react-router-dom'; // Assuming you're using React Router for navigation
@@ -12,10 +13,10 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black opacity-40"></div>
 
       {/* Content Container */}
-      <div className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <div className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
         {/* Tagline */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 font-montserrat leading-tight">
-          Empowering Students Worldwide with Knowledge and Tools
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-montserrat leading-tight">
+        Empowering Students, Businesses, and Professionals with the knowledge, skills, and tools to thrive anywhere in the world
         </h1>
 
         {/* Subtext */}
@@ -47,9 +48,8 @@ const HeroSection = () => {
 
         {/* Scroll Down Arrow (Optional) */}
         <div className="mt-12">
-          <a href="#next-section" className="text-white animate-bounce">
             <svg
-              className="w-8 h-8 mx-auto"
+              className="w-8 h-8 mx-auto text-white animate-bounce"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -62,7 +62,6 @@ const HeroSection = () => {
                 d="M19 14l-7 7m0 0l-7-7m7 7V3"
               ></path>
             </svg>
-          </a>
         </div>
       </div>
     </section>

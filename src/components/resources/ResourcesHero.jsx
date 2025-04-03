@@ -20,13 +20,13 @@ const ResourcesHero = () => {
           <div className="space-y-8 text-center lg:text-left animate-fade-in-up">
             {/* Heading */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-montserrat relative inline-block">
-              Unlock Your Learning Potential
+                Unlock Your Path to Success with EduAid Global
               <span className="absolute -bottom-3 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full transform -skew-y-3"></span>
             </h1>
 
             {/* Subheading */}
             <p className="text-lg sm:text-xl text-teal-100 font-open-sans leading-relaxed max-w-lg mx-auto lg:mx-0">
-              Explore free resources curated for students worldwide, designed to empower your educational journey.
+              At EduAid Global, we provide a comprehensive range of services to empower students, professionals, and businesses worldwide
             </p>
 
             {/* CTA Button */}
