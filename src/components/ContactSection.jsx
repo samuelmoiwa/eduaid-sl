@@ -36,7 +36,7 @@ const ContactSection = () => {
             <span className="absolute -bottom-3 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full transform -skew-y-3"></span>
           </h2>
           <p className="mt-4 text-xl text-teal-100 font-open-sans">
-            Reach out to us—we’re here to help you succeed!
+          We’re here to help you every step of the way! Reach out to us via the following:
           </p>
         </div>
 
@@ -135,7 +135,7 @@ const ContactSection = () => {
             </div>
             <div className="bg-teal-800 bg-opacity-80 p-6 rounded-2xl shadow-lg hover:bg-opacity-90 transition-all duration-300">
               <h3 className="text-xl font-semibold font-montserrat mb-2">Call Us</h3>
-              <p className="text-teal-100">+1 (800) 123-4567</p>
+              <p className="text-teal-100">+1 (123) 456-7890</p>
             </div>
             <div className="bg-teal-800 bg-opacity-80 p-6 rounded-2xl shadow-lg hover:bg-opacity-90 transition-all duration-300">
               <h3 className="text-xl font-semibold font-montserrat mb-2">Follow Us</h3>
@@ -144,6 +144,12 @@ const ContactSection = () => {
                 <a href="#" className="text-teal-100 hover:text-yellow-400 transition-colors duration-300">LinkedIn</a>
                 <a href="#" className="text-teal-100 hover:text-yellow-400 transition-colors duration-300">Instagram</a>
               </div>
+            </div>
+
+            <div className="bg-teal-800 bg-opacity-80 p-6 rounded-2xl shadow-lg hover:bg-opacity-90 transition-all duration-300">
+              <p className="text-teal-100">
+              For any inquiries, please feel free to send us a message, and we’ll respond promptly.
+              </p>
             </div>
           </div>
         </div>

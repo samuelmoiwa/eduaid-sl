@@ -23,8 +23,6 @@ const Home = () => {
           <FeautureSection />
         </div>
 
-
-
         <div className="py-16 bg-gradient-to-r from-teal-500 via-cyan-600 to-blue-600 text-white overflow-hidden w-full">
           <QuickLinksBanner />
         </div>
