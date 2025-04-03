@@ -31,7 +31,6 @@ const Home = () => {
           <BookShop />
         </div>
 
-
         <div className="py-24 bg-gradient-to-br from-teal-600 via-cyan-500 to-blue-700 text-white overflow-hidden relative w-full">
           <ContactSection />
         </div>
