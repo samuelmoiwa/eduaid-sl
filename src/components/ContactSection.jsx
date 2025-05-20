@@ -108,7 +108,9 @@ const ContactSection = () => {
                     <Field
                       as="textarea"
                       name="message"
-                      className="w-full px-4 py-3 bg-gray-50 border border-teal-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-300 h-36 resize-none text-gray-800 placeholder-gray-400"
+                      className="w-full px-4 py-3 bg-gray-50 border border-teal-300 rounded-lg focus:outline-none
+                        focus:ring-2 focus:ring-yellow-400 transition-all duration-300 h-36 resize-none
+                        text-gray-800 placeholder-gray-400"
                       placeholder="Tell us how we can assist you!"
                     />
                     <ErrorMessage name="message" component="p" className="text-red-500 text-xs mt-1" />
