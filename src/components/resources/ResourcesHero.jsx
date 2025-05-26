@@ -108,4 +108,5 @@ const ResourcesHeroWithStyles = () => (
   </div>
 );
 
+
 export default ResourcesHeroWithStyles;
